@@ -8,7 +8,7 @@ def main():
         if boxes[i]:
             tree[boxes[i]].append(i+1)
 
-    # Standard BFS on every box
+    # Standard DFS on every box
     for _ in range(int(input())):
         queries = list(map(int, input().split(' ')))[1:]
         visited = set()

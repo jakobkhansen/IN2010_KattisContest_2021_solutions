@@ -1,12 +1,12 @@
 import sys
 
-def pickupsticks(lines):
-    n,m = [int(x) for x in lines[0].split()]
+def pickupsticks():
+    n,m = [int(x) for x in input().split()]
     inEdges = [0]*n
 
     edges = {x:[] for x in range(1, n+1)}
 
-    for line in lines[1:]:
+    for line in sys.stdin:
         a,b = [int(x) for x in line.split()]
         inEdges[b-1] += 1
         edges[a].append(b)
@@ -28,16 +28,10 @@ def pickupsticks(lines):
             inEdges[edge-1] -= 1
             if inEdges[edge-1] == 0:
                 queue.append(edge)
+
     if processed < n:
-        return "IMPOSSIBLE"
+        print("IMPOSSIBLE")
+    else:
+        print("\n".join([str(x) for x in order]))
     
-    return "\n".join([str(x) for x in order])
-
-
-
-
-
-def main():
-    lines = [line.strip() for line in sys.stdin]
-    print(pickupsticks(lines))
-main()
+pickupsticks()

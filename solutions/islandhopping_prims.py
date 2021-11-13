@@ -1,10 +1,9 @@
 import math
 from heapq import heappop, heappush
 
-
-def distance(p1, p2):
-    return math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
-
+# Does prims, counts sum of the weights in the MST
+# This just barely passes on Kattis, Kruskals is faster
+# Important to use heappop, heappush instead of PriorityQueue which is too slow
 def prims(positions):
     visited = set()
     s = positions[0]
@@ -14,7 +13,6 @@ def prims(positions):
     tree_sum = 0
 
     while pq and len(visited) < len(positions):
-        # curr = pq.get()
         w,v = heappop(pq)
         if v in visited:
             continue
@@ -26,6 +24,10 @@ def prims(positions):
             if u != v and u not in visited:
                 heappush(pq, (distance(u,v), u))
     return tree_sum
+
+# Calculates distance between two points
+def distance(p1, p2):
+    return math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
 
 def main():
     n = int(input())

@@ -1,7 +1,7 @@
 import math
 from queue import PriorityQueue
-import sys
 
+# Used for clusters, see: https://en.wikipedia.org/wiki/Disjoint-set_data_structure
 class UnionFind:
     def __init__(self, n) -> None:
         self.array = [-1]*n
@@ -40,7 +40,7 @@ class UnionFind:
     def __repr__(self):
         return str(self.array)
 
-
+# Does Kruskals, counts sum of the weights in the MST
 def kruskals(m,positions):
     uf = UnionFind(m)
     mapping = {positions[x]:x for x in range(m)}
@@ -62,11 +62,8 @@ def kruskals(m,positions):
             num_edges += 1
             uf.union(mapping[p1], mapping[p2])
     print(distance_sum)
-            
 
-
-
-
+# Calculates distance between two points
 def distance(p1, p2):
     return math.sqrt( ((p1[0]-p2[0])**2)+((p1[1]-p2[1])**2) )
 

@@ -1,5 +1,6 @@
-import sys
 from heapq import heappush, heappop
+
+# This is a pqueue solution, could also be done with just sorting I think
 
 class Book:
     def __init__(self,name, pages) -> None:
@@ -15,12 +16,14 @@ def main():
 
     future_books = []
 
+    # Store the books in the initial pile
     for _ in range(n):
         book = input().split("\"")
         name = book[1]
         pages = int(book[2])
         heappush(books, Book(name, pages))
 
+    # Store books we get in the future, discard books later than Jane Eyre in ASCII order
     for _ in range(m):
         book = input().split("\"")
         time = int(book[0])
@@ -28,6 +31,7 @@ def main():
         pages = int(book[2])
         if name < 'Jane Eyre':
             future_books.append((time,Book(name, pages)))
+
     future_books.sort(key=lambda x: x[0])
 
     time = 0
@@ -36,16 +40,16 @@ def main():
 
     curr_book = None
 
+    # Read one book each iteration
     while curr_book == None or curr_book.name != 'Jane Eyre':
         curr_book = heappop(books)
         time += curr_book.pages
-        if book_pointer < len(future_books) and time >= future_books[book_pointer][0]:
+
+        # Add books we have gotten while reading to the pqueue
+        while book_pointer < len(future_books) and time >= future_books[book_pointer][0]:
             heappush(books, future_books[book_pointer][1])
             book_pointer += 1
 
     print(time)
-
-
-
 
 main()

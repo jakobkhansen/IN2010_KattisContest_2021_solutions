@@ -3,8 +3,8 @@ Solutions to the Kattis problems for the IN2010 Kattis Contest at UiO
 
 ### Introductory
 - [N-sum](https://open.kattis.com/problems/nsum)
-- [Basic programming 1](https://open.kattis.com/problems/basicprogramming1)
 - [Weak Vertices](https://open.kattis.com/problems/weakvertices)
+- [Pairing socks](https://open.kattis.com/problems/pairingsocks)
 ### Medium
 - [Accounting](https://open.kattis.com/problems/bokforing)
 - [Guess](https://open.kattis.com/problems/guess)

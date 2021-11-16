@@ -6,7 +6,7 @@ Solutions to the Kattis problems for the IN2010 Kattis Contest at UiO
 - [Weak Vertices](https://open.kattis.com/problems/weakvertices)
 - [Pairing socks](https://open.kattis.com/problems/pairingsocks)
 ### Medium
-- [Accounting](/main/solutions/accounting.py)
+- [Accounting](/solutions/accounting.py)
 - [Guess](https://open.kattis.com/problems/guess)
 - [Delimiter soup](https://open.kattis.com/problems/delimitersoup)
 - [Jane Eyre](https://open.kattis.com/problems/janeeyre)
